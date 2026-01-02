@@ -2,43 +2,30 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const navItems = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Portfolio', path: '/portfolio' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'Books', path: '/books' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'HOME', path: '/' },
+  { name: 'ABOUT', path: '/about' },
+  { name: 'WORK', path: '/portfolio' },
+  { name: 'BLOG', path: '/blog' },
+  { name: 'BOOKS', path: '/books' },
+  { name: 'CONTACT', path: '/contact' },
 ]
 
 export default function Navigation() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-background/90 backdrop-blur-md border-b border-card-border shadow-sm' 
-        : 'bg-transparent'
-    }`}>
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-card-border">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-center h-20">
           <Link 
             href="/" 
-            className="text-lg font-medium tracking-tight hover:text-accent transition-colors"
+            className="font-pixel text-xs neon-cyan glitch tracking-wider"
           >
-            Dante O. Cuales, Jr.
+            DANTE_
           </Link>
 
           {/* Desktop Navigation */}
@@ -47,58 +34,46 @@ export default function Navigation() {
               <Link
                 key={item.path}
                 href={item.path}
-                className={`text-sm font-medium transition-all duration-200 animated-underline ${
+                className={`font-terminal text-xl tracking-wider transition-all duration-200 ${
                   pathname === item.path
-                    ? 'text-foreground'
-                    : 'text-muted hover:text-foreground'
+                    ? 'neon-pink'
+                    : 'text-muted hover:text-neon-cyan'
                 }`}
               >
-                {item.name}
+                {pathname === item.path ? `> ${item.name}` : item.name}
               </Link>
             ))}
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-foreground p-2 hover:text-accent transition-colors"
+            className="md:hidden text-neon-cyan p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.5"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {isOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 8h16M4 16h16" />
-              )}
-            </svg>
+            <span className="font-terminal text-2xl">
+              {isOpen ? '[X]' : '[=]'}
+            </span>
           </button>
         </div>
 
         {/* Mobile Navigation */}
         <div className={`md:hidden overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-80 pb-6' : 'max-h-0'
+          isOpen ? 'max-h-96 pb-6' : 'max-h-0'
         }`}>
-          <div className="flex flex-col space-y-1 pt-2">
+          <div className="flex flex-col space-y-2 border-t border-card-border pt-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 href={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`px-4 py-3 text-sm font-medium transition-colors rounded-lg ${
+                className={`font-terminal text-2xl px-4 py-2 transition-colors ${
                   pathname === item.path
-                    ? 'text-foreground bg-card'
-                    : 'text-muted hover:text-foreground hover:bg-card/50'
+                    ? 'neon-pink'
+                    : 'text-muted hover:text-neon-cyan'
                 }`}
               >
-                {item.name}
+                {pathname === item.path ? `> ${item.name}` : `  ${item.name}`}
               </Link>
             ))}
           </div>

@@ -2,25 +2,26 @@ import Link from 'next/link'
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
   return (
-    <div className="max-w-3xl mx-auto px-6 lg:px-8 py-16 md:py-24">
+    <div className="max-w-3xl mx-auto px-6 py-16 md:py-24">
       <Link
         href="/blog"
-        className="inline-flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors mb-8"
+        className="inline-flex items-center gap-2 font-terminal text-lg text-muted hover:text-neon-cyan transition-colors mb-8"
       >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-        Back to Blog
+        &lt;-- BACK TO BLOG
       </Link>
-      <article className="opacity-0 animate-fade-in-up">
-        <h1 className="font-serif text-3xl md:text-5xl font-medium mb-4">
-          Blog Post: {params.slug.replace(/-/g, ' ')}
+      <article className="opacity-0 animate-fade-in">
+        <h1 className="font-pixel text-sm md:text-base neon-pink mb-6 leading-relaxed">
+          {params.slug.replace(/-/g, '_').toUpperCase()}
         </h1>
-        <div className="decorative-line mb-8"></div>
-        <p className="text-muted leading-relaxed">
-          This is a placeholder for the blog post content. In a real application,
-          you would fetch and display the actual post content here.
-        </p>
+        <hr className="retro-hr mb-8" />
+        <div className="font-terminal text-lg text-muted leading-relaxed">
+          <p>
+            &gt; This is a placeholder for the blog post content.
+          </p>
+          <p className="mt-4">
+            &gt; In a real application, content would be loaded here_
+          </p>
+        </div>
       </article>
     </div>
   )

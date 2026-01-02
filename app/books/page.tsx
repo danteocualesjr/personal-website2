@@ -21,15 +21,15 @@ const books: Book[] = [
     author: 'Andrew Hunt & David Thomas',
     description: 'A classic guide to becoming a better programmer.',
     rating: 5,
-    category: 'Technology',
+    category: 'TECH',
     cover: 'https://covers.openlibrary.org/b/isbn/9780201616224-L.jpg',
   },
   {
     title: 'Atomic Habits',
     author: 'James Clear',
-    description: 'An easy and proven way to build good habits and break bad ones.',
+    description: 'Build good habits and break bad ones.',
     rating: 5,
-    category: 'Self-Improvement',
+    category: 'SELF-DEV',
     cover: 'https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg',
   },
   {
@@ -37,74 +37,71 @@ const books: Book[] = [
     author: 'Yuval Noah Harari',
     description: 'A brief history of humankind.',
     rating: 5,
-    category: 'History',
+    category: 'HISTORY',
     cover: 'https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg',
   },
 ]
 
 export default function Books() {
   return (
-    <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-      <div className="opacity-0 animate-fade-in-up">
-        <p className="text-sm uppercase tracking-widest text-muted mb-4">
-          Library
+    <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+      <div className="opacity-0 animate-fade-in">
+        <p className="font-terminal text-xl text-neon-purple mb-4">
+          // LIBRARY.exe
         </p>
-        <h1 className="font-serif text-4xl md:text-6xl font-medium mb-6">
-          Books I Recommend
+        <h1 className="font-pixel text-xl md:text-2xl mb-6">
+          <span className="neon-cyan">RECOMMENDED READS</span>
         </h1>
-        <p className="text-xl text-muted mb-4 max-w-2xl">
-          Reading shapes how I think. Here are some books that have influenced me.
+        <p className="font-terminal text-lg text-muted mb-4 max-w-2xl">
+          &gt; Books that shaped my thinking_
         </p>
-        <div className="decorative-line mb-16"></div>
+        <hr className="retro-hr mb-12" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {books.map((book, index) => (
           <div
             key={index}
-            className="group bg-card border border-card-border rounded-xl overflow-hidden hover-lift opacity-0 animate-fade-in-up"
+            className="retro-card overflow-hidden group opacity-0 animate-fade-in"
             style={{ animationDelay: `${(index + 1) * 100}ms` }}
           >
-            <div className="relative w-full aspect-[2/3] bg-background overflow-hidden">
+            <div className="relative w-full aspect-[2/3] bg-card overflow-hidden">
               <Image
                 src={book.cover}
                 alt={`${book.title} cover`}
                 fill
-                className="object-contain p-6 transition-transform duration-300 group-hover:scale-105"
+                className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 priority={index < 3}
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
             </div>
             <div className="p-6">
-              <span className="inline-block px-2 py-1 text-xs font-medium bg-accent/10 text-accent rounded mb-3">
-                {book.category}
+              <span className="inline-block font-pixel text-[10px] text-neon-yellow mb-3">
+                [{book.category}]
               </span>
-              <h2 className="text-lg font-medium mb-1 group-hover:text-accent transition-colors">
-                {book.title}
+              <h2 className="font-pixel text-xs mb-2 group-hover:neon-pink transition-all leading-relaxed">
+                {book.title.toUpperCase()}
               </h2>
-              <p className="text-sm text-muted mb-3">
+              <p className="font-terminal text-sm text-muted mb-3">
                 by {book.author}
               </p>
               {book.rating && (
                 <div className="flex items-center gap-1 mb-3">
                   {[...Array(5)].map((_, i) => (
-                    <svg
+                    <span
                       key={i}
-                      className={`w-4 h-4 ${
-                        i < book.rating!
-                          ? 'text-accent'
-                          : 'text-card-border'
+                      className={`text-lg ${
+                        i < book.rating! ? 'text-neon-pink' : 'text-card-border'
                       }`}
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
                     >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
+                      ★
+                    </span>
                   ))}
                 </div>
               )}
-              <p className="text-sm text-muted leading-relaxed">
-                {book.description}
+              <p className="font-terminal text-sm text-muted">
+                &gt; {book.description}
               </p>
             </div>
           </div>
@@ -113,8 +110,8 @@ export default function Books() {
 
       {books.length === 0 && (
         <div className="text-center py-16">
-          <p className="text-muted">
-            Book recommendations coming soon!
+          <p className="font-terminal text-lg text-muted">
+            &gt; Loading book data..._
           </p>
         </div>
       )}

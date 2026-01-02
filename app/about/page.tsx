@@ -8,106 +8,80 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <div className="max-w-4xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-      <div className="opacity-0 animate-fade-in-up">
-        <p className="text-sm uppercase tracking-widest text-muted mb-4">
-          About
+    <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
+      <div className="opacity-0 animate-fade-in">
+        <p className="font-terminal text-xl text-neon-purple mb-4">
+          // ABOUT.exe
         </p>
-        <h1 className="font-serif text-4xl md:text-6xl font-medium mb-6">
-          A little bit about me
+        <h1 className="font-pixel text-xl md:text-2xl mb-6">
+          <span className="neon-pink">WHO AM I?</span>
         </h1>
-        <div className="decorative-line mb-12"></div>
+        <hr className="retro-hr mb-12" />
       </div>
 
-      <div className="space-y-16">
-        <section className="opacity-0 animate-fade-in-up animation-delay-100">
-          <p className="text-xl text-muted leading-relaxed mb-6">
-            Welcome! I'm a passionate individual who loves creating, learning, and sharing knowledge.
-            This website is a space where I showcase my work, share my thoughts, and connect with others.
-          </p>
-          <p className="text-xl text-muted leading-relaxed">
-            I believe in continuous learning and growth, always seeking new challenges and opportunities
-            to expand my horizons.
-          </p>
+      <div className="space-y-12">
+        <section className="opacity-0 animate-fade-in animation-delay-100">
+          <div className="font-terminal text-xl leading-relaxed text-muted space-y-4">
+            <p>
+              &gt; Welcome! I'm a passionate creator who loves building things.
+            </p>
+            <p>
+              &gt; This terminal is where I share my work and thoughts.
+            </p>
+            <p>
+              &gt; Always learning. Always growing. Always coding_
+            </p>
+          </div>
         </section>
 
-        <section className="opacity-0 animate-fade-in-up animation-delay-200">
-          <h2 className="font-serif text-2xl md:text-3xl mb-6">
-            Background
+        <section className="opacity-0 animate-fade-in animation-delay-200">
+          <h2 className="font-terminal text-xl text-neon-cyan mb-6">
+            [BACKGROUND]
           </h2>
-          <p className="text-muted leading-relaxed">
-            [Add your professional background, education, and career journey here. Share your story, 
-            what drives you, and how you got to where you are today.]
-          </p>
+          <div className="retro-card p-6">
+            <p className="font-terminal text-lg text-muted leading-relaxed">
+              &gt; [Add your professional background here]<br />
+              &gt; Education, career journey, what drives you..._
+            </p>
+          </div>
         </section>
 
-        <section className="opacity-0 animate-fade-in-up animation-delay-300">
-          <h2 className="font-serif text-2xl md:text-3xl mb-8">
-            Skills & Interests
+        <section className="opacity-0 animate-fade-in animation-delay-300">
+          <h2 className="font-terminal text-xl text-neon-cyan mb-6">
+            [SKILLS]
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-6 bg-card border border-card-border rounded-xl">
-              <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-accent"></span>
-                Technical Skills
-              </h3>
-              <ul className="space-y-2 text-muted">
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-muted"></span>
-                  Web Development
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-muted"></span>
-                  UI/UX Design
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-muted"></span>
-                  Problem Solving
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-muted"></span>
-                  [Add your skills]
-                </li>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="retro-card p-6">
+              <h3 className="font-pixel text-xs neon-pink mb-4">TECHNICAL</h3>
+              <ul className="font-terminal text-lg text-muted space-y-2">
+                <li>&gt; Web Development</li>
+                <li>&gt; UI/UX Design</li>
+                <li>&gt; Problem Solving</li>
+                <li>&gt; [Your skills]</li>
               </ul>
             </div>
-            <div className="p-6 bg-card border border-card-border rounded-xl">
-              <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-accent"></span>
-                Interests
-              </h3>
-              <ul className="space-y-2 text-muted">
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-muted"></span>
-                  Reading
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-muted"></span>
-                  Technology
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-muted"></span>
-                  Creative Writing
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-muted"></span>
-                  [Add your interests]
-                </li>
+            <div className="retro-card p-6">
+              <h3 className="font-pixel text-xs neon-cyan mb-4">INTERESTS</h3>
+              <ul className="font-terminal text-lg text-muted space-y-2">
+                <li>&gt; Reading</li>
+                <li>&gt; Technology</li>
+                <li>&gt; Creative Writing</li>
+                <li>&gt; [Your interests]</li>
               </ul>
             </div>
           </div>
         </section>
 
-        <section className="opacity-0 animate-fade-in-up animation-delay-400 pt-8">
-          <div className="p-8 bg-card border border-card-border rounded-xl text-center">
-            <h2 className="font-serif text-2xl md:text-3xl mb-4">
-              Let's Work Together
+        <section className="opacity-0 animate-fade-in animation-delay-400">
+          <div className="retro-card p-8 text-center">
+            <h2 className="font-pixel text-xs md:text-sm mb-6">
+              <span className="neon-purple">LET'S WORK TOGETHER</span>
             </h2>
-            <p className="text-muted mb-6 max-w-lg mx-auto">
-              I'm always open to connecting with like-minded individuals, discussing new ideas,
-              or collaborating on interesting projects.
+            <p className="font-terminal text-lg text-muted mb-8">
+              &gt; Open for collaborations and new opportunities_
             </p>
-            <Link href="/contact" className="btn-primary inline-block">
-              Contact Me
+            <Link href="/contact" className="btn-retro inline-block">
+              CONTACT ME
             </Link>
           </div>
         </section>

@@ -17,7 +17,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Project One',
+    title: 'PROJECT_ONE',
     description: 'A brief description of your first project. Explain what it does and what technologies you used.',
     tags: ['React', 'TypeScript', 'Next.js'],
     link: '#',
@@ -25,15 +25,15 @@ const projects: Project[] = [
     featured: true,
   },
   {
-    title: 'Project Two',
-    description: 'A brief description of your second project. Highlight key features and your role in the project.',
+    title: 'PROJECT_TWO',
+    description: 'A brief description of your second project. Highlight key features and your role.',
     tags: ['Python', 'Django', 'PostgreSQL'],
     link: '#',
     github: '#',
   },
   {
-    title: 'Project Three',
-    description: 'A brief description of your third project. Showcase the problem it solves and the impact it had.',
+    title: 'PROJECT_THREE',
+    description: 'A brief description of your third project. Showcase the problem it solves.',
     tags: ['JavaScript', 'Node.js', 'MongoDB'],
     link: '#',
     github: '#',
@@ -42,62 +42,59 @@ const projects: Project[] = [
 
 export default function Portfolio() {
   return (
-    <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-      <div className="opacity-0 animate-fade-in-up">
-        <p className="text-sm uppercase tracking-widest text-muted mb-4">
-          Portfolio
+    <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+      <div className="opacity-0 animate-fade-in">
+        <p className="font-terminal text-xl text-neon-purple mb-4">
+          // PORTFOLIO.exe
         </p>
-        <h1 className="font-serif text-4xl md:text-6xl font-medium mb-6">
-          Selected Work
+        <h1 className="font-pixel text-xl md:text-2xl mb-6">
+          <span className="neon-cyan">MY WORK</span>
         </h1>
-        <p className="text-xl text-muted mb-4 max-w-2xl">
-          A collection of projects I've worked on. Each represents a unique challenge and creative solution.
+        <p className="font-terminal text-lg text-muted mb-4 max-w-2xl">
+          &gt; Projects I've built and shipped_
         </p>
-        <div className="decorative-line mb-16"></div>
+        <hr className="retro-hr mb-12" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {projects.map((project, index) => (
           <div
             key={index}
-            className={`group p-8 bg-card border border-card-border rounded-xl hover-lift opacity-0 animate-fade-in-up ${
+            className={`retro-card p-6 opacity-0 animate-fade-in ${
               project.featured ? 'lg:col-span-2' : ''
             }`}
             style={{ animationDelay: `${(index + 1) * 100}ms` }}
           >
             {project.featured && (
-              <span className="inline-block px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full mb-4">
-                Featured
+              <span className="inline-block font-pixel text-[10px] text-neon-yellow mb-3">
+                [FEATURED]
               </span>
             )}
-            <h2 className="text-2xl font-medium mb-3 group-hover:text-accent transition-colors">
+            <h2 className="font-pixel text-xs md:text-sm neon-pink mb-4">
               {project.title}
             </h2>
-            <p className="text-muted mb-6 leading-relaxed">
-              {project.description}
+            <p className="font-terminal text-lg text-muted mb-6 leading-relaxed">
+              &gt; {project.description}
             </p>
             <div className="flex flex-wrap gap-2 mb-6">
               {project.tags.map((tag, tagIndex) => (
                 <span
                   key={tagIndex}
-                  className="px-3 py-1 text-xs font-medium bg-background border border-card-border rounded-full text-muted"
+                  className="px-3 py-1 font-terminal text-sm border border-card-border text-neon-purple"
                 >
                   {tag}
                 </span>
               ))}
             </div>
-            <div className="flex gap-6">
+            <div className="flex gap-6 font-terminal text-lg">
               {project.link && (
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1"
+                  className="text-neon-cyan hover:neon-cyan transition-all"
                 >
-                  Live Demo
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
+                  [LIVE DEMO]
                 </a>
               )}
               {project.github && (
@@ -105,12 +102,9 @@ export default function Portfolio() {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1"
+                  className="text-neon-pink hover:neon-pink transition-all"
                 >
-                  View Code
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                  </svg>
+                  [SOURCE]
                 </a>
               )}
             </div>
@@ -118,21 +112,21 @@ export default function Portfolio() {
         ))}
       </div>
 
-      <div className="mt-20 text-center opacity-0 animate-fade-in-up animation-delay-500">
-        <p className="text-muted mb-6">
-          Want to see more? Check out my GitHub or get in touch!
+      <div className="mt-16 text-center opacity-0 animate-fade-in animation-delay-500">
+        <p className="font-terminal text-lg text-muted mb-8">
+          &gt; Want to see more? Check out my GitHub_
         </p>
         <div className="flex gap-4 justify-center flex-wrap">
           <a
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary"
+            className="btn-retro btn-retro-pink"
           >
-            View GitHub
+            GITHUB
           </a>
-          <Link href="/contact" className="btn-primary">
-            Get in Touch
+          <Link href="/contact" className="btn-retro">
+            CONTACT
           </Link>
         </div>
       </div>
