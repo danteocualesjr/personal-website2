@@ -18,26 +18,26 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
-      <div className="max-w-xl mx-auto px-6">
-        <div className="flex justify-between items-center h-16">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-card-border">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="flex justify-between items-center h-20">
           <Link 
             href="/" 
-            className="text-gray-900 font-semibold hover:text-gray-600 transition-colors"
+            className="font-display text-xl font-medium tracking-tight hover:text-rust transition-colors"
           >
-            Dante Cuales
+            Dante O. Cuales, Jr.
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            {navItems.slice(1).map((item) => (
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
               <Link
                 key={item.path}
                 href={item.path}
-                className={`text-sm transition-colors ${
+                className={`font-mono text-xs uppercase tracking-widest transition-colors ${
                   pathname === item.path
-                    ? 'text-blue-600'
-                    : 'text-gray-500 hover:text-gray-900'
+                    ? 'text-rust'
+                    : 'text-muted hover:text-foreground'
                 }`}
               >
                 {item.name}
@@ -47,28 +47,30 @@ export default function Navigation() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-gray-500 hover:text-gray-900 transition-colors"
+            className="md:hidden text-foreground p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? '✕' : '☰'}
+            <span className="font-mono text-sm">
+              {isOpen ? '✕ Close' : '☰ Menu'}
+            </span>
           </button>
         </div>
 
         {/* Mobile Navigation */}
         <div className={`md:hidden overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-96 pb-4' : 'max-h-0'
+          isOpen ? 'max-h-96 pb-6' : 'max-h-0'
         }`}>
-          <div className="flex flex-col space-y-1 border-t border-gray-100 pt-4">
+          <div className="flex flex-col space-y-1 border-t border-card-border pt-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 href={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`py-2 transition-colors ${
+                className={`font-mono text-sm uppercase tracking-widest px-4 py-3 transition-colors ${
                   pathname === item.path
-                    ? 'text-blue-600'
-                    : 'text-gray-500 hover:text-gray-900'
+                    ? 'text-rust bg-cream'
+                    : 'text-muted hover:text-foreground hover:bg-cream'
                 }`}
               >
                 {item.name}
