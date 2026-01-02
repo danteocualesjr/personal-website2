@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Books - Dante O. Cuales, Jr.',
@@ -11,6 +12,7 @@ interface Book {
   description: string
   rating?: number
   category: string
+  cover: string
 }
 
 const books: Book[] = [
@@ -20,6 +22,7 @@ const books: Book[] = [
     description: 'A classic guide to becoming a better programmer.',
     rating: 5,
     category: 'Technology',
+    cover: 'https://covers.openlibrary.org/b/isbn/9780201616224-L.jpg',
   },
   {
     title: 'Atomic Habits',
@@ -27,6 +30,7 @@ const books: Book[] = [
     description: 'An easy and proven way to build good habits and break bad ones.',
     rating: 5,
     category: 'Self-Improvement',
+    cover: 'https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg',
   },
   {
     title: 'Sapiens',
@@ -34,6 +38,7 @@ const books: Book[] = [
     description: 'A brief history of humankind.',
     rating: 5,
     category: 'History',
+    cover: 'https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg',
   },
 ]
 
@@ -51,40 +56,51 @@ export default function Books() {
         {books.map((book, index) => (
           <div
             key={index}
-            className="border border-gray-200 dark:border-gray-800 rounded-lg p-6 hover:border-gray-300 dark:hover:border-gray-700 transition-colors"
+            className="border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden hover:border-gray-300 dark:hover:border-gray-700 transition-colors bg-white dark:bg-gray-900"
           >
-            <div className="mb-4">
-              <span className="text-xs font-medium text-gray-500 dark:text-gray-500 uppercase">
-                {book.category}
-              </span>
+            <div className="relative w-full h-64 bg-gray-100 dark:bg-gray-800">
+              <Image
+                src={book.cover}
+                alt={`${book.title} cover`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             </div>
-            <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
-              {book.title}
-            </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-              by {book.author}
-            </p>
-            {book.rating && (
-              <div className="flex items-center mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <svg
-                    key={i}
-                    className={`w-4 h-4 ${
-                      i < book.rating!
-                        ? 'text-yellow-400 fill-current'
-                        : 'text-gray-300 dark:text-gray-700'
-                    }`}
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
+            <div className="p-6">
+              <div className="mb-3">
+                <span className="text-xs font-medium text-gray-500 dark:text-gray-500 uppercase">
+                  {book.category}
+                </span>
               </div>
-            )}
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
-              {book.description}
-            </p>
+              <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+                {book.title}
+              </h2>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                by {book.author}
+              </p>
+              {book.rating && (
+                <div className="flex items-center mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className={`w-4 h-4 ${
+                        i < book.rating!
+                          ? 'text-yellow-400 fill-current'
+                          : 'text-gray-300 dark:text-gray-700'
+                      }`}
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+              )}
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                {book.description}
+              </p>
+            </div>
           </div>
         ))}
       </div>
