@@ -3,61 +3,76 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="max-w-2xl mx-auto px-6 py-32 md:py-40">
-        <h1 className="text-4xl md:text-5xl font-normal text-gray-900 leading-tight mb-6">
-          Hi, I'm Dante.
-        </h1>
-        <p className="text-xl text-gray-500 leading-relaxed mb-12">
-          I design and build digital products. Currently based in the Philippines, working with clients worldwide.
-        </p>
-        <div className="flex gap-6">
-          <Link href="/portfolio" className="text-gray-900 underline underline-offset-4 hover:text-gray-600 transition-colors">
-            See my work
-          </Link>
-          <Link href="/contact" className="text-gray-900 underline underline-offset-4 hover:text-gray-600 transition-colors">
-            Get in touch
-          </Link>
-        </div>
-      </section>
+      <main className="max-w-xl mx-auto px-6 py-16 md:py-24">
+        {/* Introduction */}
+        <section className="mb-12">
+          <h1 className="text-2xl font-semibold text-gray-900 mb-4">
+            Dante Cuales
+          </h1>
+          <p className="text-gray-600 leading-relaxed mb-4">
+            I'm a developer and creator. I build digital products and write about technology. I've been coding for several years and love turning ideas into reality.
+          </p>
+          <p className="text-gray-600 leading-relaxed">
+            My goal is to create things that are useful, beautiful, and easy to use. I'm based in the Philippines, working with clients globally. When I'm not coding, you'll find me reading or exploring new ideas.
+          </p>
+        </section>
 
-      {/* Divider */}
-      <div className="max-w-2xl mx-auto px-6">
-        <div className="h-px bg-gray-100" />
-      </div>
+        <hr className="border-gray-100 mb-12" />
 
-      {/* Links */}
-      <section className="max-w-2xl mx-auto px-6 py-20">
-        <nav className="space-y-6">
-          <Link href="/about" className="group flex items-center justify-between py-4 border-b border-gray-100 hover:border-gray-300 transition-colors">
-            <span className="text-gray-900">About</span>
-            <span className="text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all">→</span>
-          </Link>
-          <Link href="/portfolio" className="group flex items-center justify-between py-4 border-b border-gray-100 hover:border-gray-300 transition-colors">
-            <span className="text-gray-900">Portfolio</span>
-            <span className="text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all">→</span>
-          </Link>
-          <Link href="/blog" className="group flex items-center justify-between py-4 border-b border-gray-100 hover:border-gray-300 transition-colors">
-            <span className="text-gray-900">Blog</span>
-            <span className="text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all">→</span>
-          </Link>
-          <Link href="/books" className="group flex items-center justify-between py-4 border-b border-gray-100 hover:border-gray-300 transition-colors">
-            <span className="text-gray-900">Books</span>
-            <span className="text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all">→</span>
-          </Link>
-          <Link href="/contact" className="group flex items-center justify-between py-4 border-b border-gray-100 hover:border-gray-300 transition-colors">
-            <span className="text-gray-900">Contact</span>
-            <span className="text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 transition-all">→</span>
-          </Link>
-        </nav>
-      </section>
+        {/* Featured Links */}
+        <section className="mb-12">
+          <p className="text-gray-600 leading-relaxed mb-4">
+            Some pages you might find interesting:
+          </p>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/about" className="text-blue-600 hover:text-blue-800 hover:underline">
+                About Me
+              </Link>
+            </li>
+            <li>
+              <Link href="/portfolio" className="text-blue-600 hover:text-blue-800 hover:underline">
+                Portfolio
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className="text-blue-600 hover:text-blue-800 hover:underline">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link href="/books" className="text-blue-600 hover:text-blue-800 hover:underline">
+                Books I Recommend
+              </Link>
+            </li>
+          </ul>
+        </section>
 
-      {/* Footer */}
-      <footer className="max-w-2xl mx-auto px-6 py-12">
-        <p className="text-sm text-gray-400">
-          © 2024 Dante Cuales
-        </p>
-      </footer>
+        <hr className="border-gray-100 mb-12" />
+
+        {/* Connect */}
+        <section>
+          <p className="text-gray-600 leading-relaxed">
+            You can find me on{' '}
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 hover:underline">
+              GitHub
+            </a>
+            ,{' '}
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 hover:underline">
+              LinkedIn
+            </a>
+            , or{' '}
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 hover:underline">
+              Twitter
+            </a>
+            . Feel free to{' '}
+            <Link href="/contact" className="text-blue-600 hover:text-blue-800 hover:underline">
+              reach out
+            </Link>
+            {' '}if you'd like to work together.
+          </p>
+        </section>
+      </main>
     </div>
   )
 }
