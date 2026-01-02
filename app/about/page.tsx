@@ -8,80 +8,88 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
+    <div className="max-w-3xl mx-auto px-6 py-12 md:py-20">
       <div className="opacity-0 animate-fade-in">
-        <p className="font-terminal text-xl text-neon-purple mb-4">
-          // ABOUT.exe
-        </p>
-        <h1 className="font-pixel text-xl md:text-2xl mb-6">
-          <span className="neon-pink">WHO AM I?</span>
+        <span className="stamp mb-6">About</span>
+        <h1 className="font-display text-4xl md:text-5xl font-medium mt-6 mb-8">
+          A Little About Me
         </h1>
-        <hr className="retro-hr mb-12" />
       </div>
 
       <div className="space-y-12">
         <section className="opacity-0 animate-fade-in animation-delay-100">
-          <div className="font-terminal text-xl leading-relaxed text-muted space-y-4">
-            <p>
-              &gt; Welcome! I'm a passionate creator who loves building things.
-            </p>
-            <p>
-              &gt; This terminal is where I share my work and thoughts.
-            </p>
-            <p>
-              &gt; Always learning. Always growing. Always coding_
-            </p>
-          </div>
+          <p className="text-lg leading-relaxed text-muted drop-cap">
+            Welcome! I'm a passionate individual who loves creating, learning, and sharing knowledge.
+            This website is a space where I showcase my work, share my thoughts, and connect with others
+            who share similar interests and curiosities.
+          </p>
+          <p className="text-lg leading-relaxed text-muted mt-6">
+            I believe in continuous learning and growth, always seeking new challenges and opportunities
+            to expand my horizons and create meaningful work.
+          </p>
         </section>
+
+        <div className="vintage-divider opacity-0 animate-fade-in animation-delay-200">
+          <span className="font-mono text-xs uppercase tracking-widest">Background</span>
+        </div>
 
         <section className="opacity-0 animate-fade-in animation-delay-200">
-          <h2 className="font-terminal text-xl text-neon-cyan mb-6">
-            [BACKGROUND]
-          </h2>
-          <div className="retro-card p-6">
-            <p className="font-terminal text-lg text-muted leading-relaxed">
-              &gt; [Add your professional background here]<br />
-              &gt; Education, career journey, what drives you..._
-            </p>
-          </div>
+          <p className="text-muted leading-relaxed">
+            [Add your professional background, education, and career journey here. Share your story, 
+            what drives you, and how you got to where you are today.]
+          </p>
         </section>
 
+        <div className="vintage-divider opacity-0 animate-fade-in animation-delay-300">
+          <span className="font-mono text-xs uppercase tracking-widest">Skills & Interests</span>
+        </div>
+
         <section className="opacity-0 animate-fade-in animation-delay-300">
-          <h2 className="font-terminal text-xl text-neon-cyan mb-6">
-            [SKILLS]
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="retro-card p-6">
-              <h3 className="font-pixel text-xs neon-pink mb-4">TECHNICAL</h3>
-              <ul className="font-terminal text-lg text-muted space-y-2">
-                <li>&gt; Web Development</li>
-                <li>&gt; UI/UX Design</li>
-                <li>&gt; Problem Solving</li>
-                <li>&gt; [Your skills]</li>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="vintage-card p-6">
+              <h3 className="font-display text-lg mb-4 text-rust">Technical Skills</h3>
+              <ul className="space-y-2 text-muted">
+                <li className="flex items-center gap-2">
+                  <span className="text-rust">✦</span> Web Development
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-rust">✦</span> UI/UX Design
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-rust">✦</span> Problem Solving
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-rust">✦</span> [Your skills]
+                </li>
               </ul>
             </div>
-            <div className="retro-card p-6">
-              <h3 className="font-pixel text-xs neon-cyan mb-4">INTERESTS</h3>
-              <ul className="font-terminal text-lg text-muted space-y-2">
-                <li>&gt; Reading</li>
-                <li>&gt; Technology</li>
-                <li>&gt; Creative Writing</li>
-                <li>&gt; [Your interests]</li>
+            <div className="vintage-card p-6">
+              <h3 className="font-display text-lg mb-4 text-olive">Interests</h3>
+              <ul className="space-y-2 text-muted">
+                <li className="flex items-center gap-2">
+                  <span className="text-olive">✦</span> Reading
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-olive">✦</span> Technology
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-olive">✦</span> Creative Writing
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-olive">✦</span> [Your interests]
+                </li>
               </ul>
             </div>
           </div>
         </section>
 
         <section className="opacity-0 animate-fade-in animation-delay-400">
-          <div className="retro-card p-8 text-center">
-            <h2 className="font-pixel text-xs md:text-sm mb-6">
-              <span className="neon-purple">LET'S WORK TOGETHER</span>
-            </h2>
-            <p className="font-terminal text-lg text-muted mb-8">
-              &gt; Open for collaborations and new opportunities_
+          <div className="vintage-border p-8 text-center">
+            <p className="font-display text-xl mb-6">
+              Interested in working together?
             </p>
-            <Link href="/contact" className="btn-retro inline-block">
-              CONTACT ME
+            <Link href="/contact" className="btn-vintage inline-block">
+              Let's Talk
             </Link>
           </div>
         </section>

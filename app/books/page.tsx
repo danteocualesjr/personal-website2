@@ -21,15 +21,15 @@ const books: Book[] = [
     author: 'Andrew Hunt & David Thomas',
     description: 'A classic guide to becoming a better programmer.',
     rating: 5,
-    category: 'TECH',
+    category: 'Technology',
     cover: 'https://covers.openlibrary.org/b/isbn/9780201616224-L.jpg',
   },
   {
     title: 'Atomic Habits',
     author: 'James Clear',
-    description: 'Build good habits and break bad ones.',
+    description: 'An easy and proven way to build good habits and break bad ones.',
     rating: 5,
-    category: 'SELF-DEV',
+    category: 'Self-Improvement',
     cover: 'https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg',
   },
   {
@@ -37,53 +37,49 @@ const books: Book[] = [
     author: 'Yuval Noah Harari',
     description: 'A brief history of humankind.',
     rating: 5,
-    category: 'HISTORY',
+    category: 'History',
     cover: 'https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg',
   },
 ]
 
 export default function Books() {
   return (
-    <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+    <div className="max-w-4xl mx-auto px-6 py-12 md:py-20">
       <div className="opacity-0 animate-fade-in">
-        <p className="font-terminal text-xl text-neon-purple mb-4">
-          // LIBRARY.exe
-        </p>
-        <h1 className="font-pixel text-xl md:text-2xl mb-6">
-          <span className="neon-cyan">RECOMMENDED READS</span>
+        <span className="stamp-olive mb-6">Library</span>
+        <h1 className="font-display text-4xl md:text-5xl font-medium mt-6 mb-4">
+          Recommended Reading
         </h1>
-        <p className="font-terminal text-lg text-muted mb-4 max-w-2xl">
-          &gt; Books that shaped my thinking_
+        <p className="text-lg text-muted mb-12 max-w-xl">
+          Books have shaped much of how I think. Here are some that left a lasting impression.
         </p>
-        <hr className="retro-hr mb-12" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {books.map((book, index) => (
-          <div
+          <article
             key={index}
-            className="retro-card overflow-hidden group opacity-0 animate-fade-in"
+            className="vintage-card overflow-hidden group opacity-0 animate-fade-in"
             style={{ animationDelay: `${(index + 1) * 100}ms` }}
           >
-            <div className="relative w-full aspect-[2/3] bg-card overflow-hidden">
+            <div className="relative w-full aspect-[2/3] bg-cream overflow-hidden">
               <Image
                 src={book.cover}
                 alt={`${book.title} cover`}
                 fill
-                className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 priority={index < 3}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
             </div>
             <div className="p-6">
-              <span className="inline-block font-pixel text-[10px] text-neon-yellow mb-3">
-                [{book.category}]
+              <span className="vintage-tag mb-3">
+                {book.category}
               </span>
-              <h2 className="font-pixel text-xs mb-2 group-hover:neon-pink transition-all leading-relaxed">
-                {book.title.toUpperCase()}
+              <h2 className="font-display text-lg mt-2 mb-1 group-hover:text-rust transition-colors">
+                {book.title}
               </h2>
-              <p className="font-terminal text-sm text-muted mb-3">
+              <p className="font-mono text-xs text-muted mb-3">
                 by {book.author}
               </p>
               {book.rating && (
@@ -91,8 +87,8 @@ export default function Books() {
                   {[...Array(5)].map((_, i) => (
                     <span
                       key={i}
-                      className={`text-lg ${
-                        i < book.rating! ? 'text-neon-pink' : 'text-card-border'
+                      className={`text-sm ${
+                        i < book.rating! ? 'text-mustard' : 'text-card-border'
                       }`}
                     >
                       ★
@@ -100,18 +96,18 @@ export default function Books() {
                   ))}
                 </div>
               )}
-              <p className="font-terminal text-sm text-muted">
-                &gt; {book.description}
+              <p className="text-sm text-muted leading-relaxed">
+                {book.description}
               </p>
             </div>
-          </div>
+          </article>
         ))}
       </div>
 
       {books.length === 0 && (
         <div className="text-center py-16">
-          <p className="font-terminal text-lg text-muted">
-            &gt; Loading book data..._
+          <p className="text-muted italic">
+            Book recommendations coming soon.
           </p>
         </div>
       )}

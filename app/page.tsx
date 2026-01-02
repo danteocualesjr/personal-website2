@@ -2,101 +2,91 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="min-h-screen stars">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="max-w-4xl mx-auto px-6 py-20 md:py-32">
+      <section className="max-w-3xl mx-auto px-6 py-16 md:py-24 text-center">
         <div className="opacity-0 animate-fade-in">
-          <p className="font-terminal text-2xl text-neon-purple mb-4">
-            // WELCOME TO MY TERMINAL
-          </p>
-          <h1 className="font-pixel text-2xl md:text-4xl leading-relaxed mb-8">
-            <span className="text-foreground">HELLO, I'M</span>
-            <br />
-            <span className="neon-pink">DANTE</span>
+          <div className="ornament mb-8"></div>
+          <h1 className="font-display text-4xl md:text-6xl font-medium leading-tight mb-6">
+            Hello, I'm{' '}
+            <span className="text-rust italic">Dante</span>
           </h1>
-          <div className="font-terminal text-xl md:text-2xl text-muted leading-relaxed mb-10 max-w-2xl">
-            <p className="typing-cursor">
-              &gt; A developer who loves building cool things.
-            </p>
-            <p className="mt-2">
-              &gt; Welcome to my corner of the internet_
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/portfolio" className="btn-retro text-center">
-              VIEW WORK
+          <p className="text-lg md:text-xl text-muted leading-relaxed mb-10 max-w-xl mx-auto">
+            A curious creator who loves building thoughtful things. 
+            Welcome to my corner of the internet.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/portfolio" className="btn-vintage text-center">
+              View My Work
             </Link>
-            <Link href="/about" className="btn-retro btn-retro-pink text-center">
-              ABOUT ME
+            <Link href="/about" className="btn-vintage-outline text-center">
+              About Me
             </Link>
           </div>
         </div>
       </section>
 
       {/* Divider */}
-      <div className="max-w-6xl mx-auto px-6">
-        <hr className="retro-hr" />
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="vintage-divider">
+          <span className="font-mono text-xs uppercase tracking-widest">Explore</span>
+        </div>
       </div>
 
       {/* Quick Links Section */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="font-terminal text-2xl text-neon-purple mb-8 opacity-0 animate-fade-in animation-delay-100">
-          [EXPLORE]
-        </h2>
+      <section className="max-w-4xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Link
             href="/portfolio"
-            className="retro-card p-6 group opacity-0 animate-fade-in animation-delay-200"
+            className="vintage-card p-8 group opacity-0 animate-fade-in animation-delay-100"
           >
-            <div className="font-terminal text-4xl text-neon-cyan mb-4">01</div>
-            <h3 className="font-pixel text-xs mb-3 group-hover:neon-cyan transition-all">
-              PORTFOLIO
+            <span className="number-marker">01</span>
+            <h3 className="font-display text-xl mt-4 mb-2 group-hover:text-rust transition-colors">
+              Portfolio
             </h3>
-            <p className="font-terminal text-lg text-muted">
-              &gt; Check out projects I've built and shipped.
+            <p className="text-muted text-sm">
+              Projects and work I've crafted over the years.
             </p>
           </Link>
 
           <Link
             href="/blog"
-            className="retro-card p-6 group opacity-0 animate-fade-in animation-delay-300"
+            className="vintage-card p-8 group opacity-0 animate-fade-in animation-delay-200"
           >
-            <div className="font-terminal text-4xl text-neon-pink mb-4">02</div>
-            <h3 className="font-pixel text-xs mb-3 group-hover:neon-pink transition-all">
-              BLOG
+            <span className="number-marker">02</span>
+            <h3 className="font-display text-xl mt-4 mb-2 group-hover:text-rust transition-colors">
+              Journal
             </h3>
-            <p className="font-terminal text-lg text-muted">
-              &gt; Thoughts, tutorials, and random ideas.
+            <p className="text-muted text-sm">
+              Thoughts, essays, and ideas worth sharing.
             </p>
           </Link>
 
           <Link
             href="/books"
-            className="retro-card p-6 group opacity-0 animate-fade-in animation-delay-400"
+            className="vintage-card p-8 group opacity-0 animate-fade-in animation-delay-300"
           >
-            <div className="font-terminal text-4xl text-neon-purple mb-4">03</div>
-            <h3 className="font-pixel text-xs mb-3 group-hover:neon-purple transition-all">
-              BOOKS
+            <span className="number-marker">03</span>
+            <h3 className="font-display text-xl mt-4 mb-2 group-hover:text-rust transition-colors">
+              Reading
             </h3>
-            <p className="font-terminal text-lg text-muted">
-              &gt; Books that shaped my thinking.
+            <p className="text-muted text-sm">
+              Books that have shaped my perspective.
             </p>
           </Link>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="max-w-4xl mx-auto px-6 py-20 text-center">
-        <div className="retro-card p-10 opacity-0 animate-fade-in animation-delay-500">
-          <h2 className="font-pixel text-sm md:text-base mb-6">
-            <span className="neon-cyan">READY TO</span>{' '}
-            <span className="neon-pink">CONNECT?</span>
-          </h2>
-          <p className="font-terminal text-xl text-muted mb-8">
-            &gt; Let's build something awesome together_
+      <section className="max-w-2xl mx-auto px-6 py-16">
+        <div className="vintage-border p-10 text-center opacity-0 animate-fade-in animation-delay-400">
+          <p className="font-display text-2xl md:text-3xl mb-6 leading-relaxed">
+            "The best time to start was yesterday. The second best time is{' '}
+            <span className="text-rust italic">now</span>."
           </p>
-          <Link href="/contact" className="btn-retro inline-block">
-            SEND MESSAGE
+          <div className="ornament mb-6"></div>
+          <Link href="/contact" className="btn-vintage inline-block">
+            Get in Touch
           </Link>
         </div>
       </section>

@@ -4,32 +4,32 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-card-border mt-20 relative z-10">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+    <footer className="border-t border-card-border mt-20 bg-cream">
+      <div className="max-w-5xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
-            <h3 className="font-pixel text-xs neon-cyan mb-4">DANTE_</h3>
-            <p className="font-terminal text-xl text-muted leading-relaxed">
-              Building the future,<br />one pixel at a time.
+            <h3 className="font-display text-xl mb-4">Dante O. Cuales, Jr.</h3>
+            <p className="text-muted leading-relaxed text-sm">
+              Creating meaningful work and sharing ideas. Thanks for stopping by.
             </p>
           </div>
           <div>
-            <h4 className="font-terminal text-lg text-neon-purple mb-4">[NAVIGATE]</h4>
-            <div className="flex flex-col space-y-2 font-terminal text-lg">
-              <Link href="/about" className="text-muted hover:text-neon-cyan transition-colors">&gt; About</Link>
-              <Link href="/portfolio" className="text-muted hover:text-neon-cyan transition-colors">&gt; Portfolio</Link>
-              <Link href="/blog" className="text-muted hover:text-neon-cyan transition-colors">&gt; Blog</Link>
-              <Link href="/books" className="text-muted hover:text-neon-cyan transition-colors">&gt; Books</Link>
+            <h4 className="font-mono text-xs uppercase tracking-widest text-muted mb-4">Navigate</h4>
+            <div className="flex flex-col space-y-2">
+              <Link href="/about" className="text-sm hover:text-rust transition-colors">About</Link>
+              <Link href="/portfolio" className="text-sm hover:text-rust transition-colors">Portfolio</Link>
+              <Link href="/blog" className="text-sm hover:text-rust transition-colors">Blog</Link>
+              <Link href="/books" className="text-sm hover:text-rust transition-colors">Books</Link>
             </div>
           </div>
           <div>
-            <h4 className="font-terminal text-lg text-neon-purple mb-4">[CONNECT]</h4>
+            <h4 className="font-mono text-xs uppercase tracking-widest text-muted mb-4">Connect</h4>
             <div className="flex gap-4">
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-card-border flex items-center justify-center text-muted hover:text-neon-cyan hover:border-neon-cyan transition-all"
+                className="text-muted hover:text-rust transition-colors"
                 aria-label="GitHub"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -40,7 +40,7 @@ export default function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-card-border flex items-center justify-center text-muted hover:text-neon-pink hover:border-neon-pink transition-all"
+                className="text-muted hover:text-rust transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -51,7 +51,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-card-border flex items-center justify-center text-muted hover:text-neon-purple hover:border-neon-purple transition-all"
+                className="text-muted hover:text-rust transition-colors"
                 aria-label="Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -61,13 +61,12 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <hr className="retro-hr mb-6" />
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-terminal text-lg text-muted">
-            &copy; {currentYear} DANTE O. CUALES, JR.
+        <div className="pt-8 border-t border-card-border flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="font-mono text-xs text-muted uppercase tracking-wider">
+            © {currentYear} Dante O. Cuales, Jr.
           </p>
-          <p className="font-terminal text-sm text-muted">
-            [ SYSTEM ONLINE ]
+          <p className="font-mono text-xs text-muted">
+            Est. 2024 · Made with care
           </p>
         </div>
       </div>

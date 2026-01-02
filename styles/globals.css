@@ -1,19 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #0f0a1a;
-  --foreground: #e0d7ff;
-  --neon-pink: #ff2a6d;
-  --neon-cyan: #05d9e8;
-  --neon-purple: #9d4edd;
-  --neon-yellow: #f9dc5c;
-  --muted: #7b6b99;
-  --card: #1a1429;
-  --card-border: #2d2145;
+  --background: #faf6f1;
+  --foreground: #2d2a26;
+  --cream: #f5f0e8;
+  --rust: #c75d38;
+  --mustard: #d4a03c;
+  --olive: #5c6b4d;
+  --brown: #6b5c4c;
+  --muted: #8a8279;
+  --card: #ffffff;
+  --card-border: #e5ded4;
 }
 
 * {
@@ -27,12 +28,12 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Space Mono', monospace;
+  font-family: 'Libre Baskerville', Georgia, serif;
   -webkit-font-smoothing: antialiased;
-  position: relative;
+  line-height: 1.7;
 }
 
-/* Scanlines overlay */
+/* Paper texture overlay */
 body::before {
   content: '';
   position: fixed;
@@ -42,245 +43,194 @@ body::before {
   height: 100%;
   pointer-events: none;
   z-index: 1000;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.15) 1px,
-    transparent 1px,
-    transparent 2px
-  );
-  opacity: 0.3;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
-/* Grid background */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  background-image: 
-    linear-gradient(rgba(157, 78, 221, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(157, 78, 221, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
+/* Display font */
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
-/* Pixel font for headings */
-.font-pixel {
-  font-family: 'Press Start 2P', cursive;
+/* Mono font */
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
 }
 
-/* Terminal font */
-.font-terminal {
-  font-family: 'VT323', monospace;
-}
-
-/* Neon text glow */
-.neon-pink {
-  color: var(--neon-pink);
-  text-shadow: 
-    0 0 5px var(--neon-pink),
-    0 0 10px var(--neon-pink),
-    0 0 20px var(--neon-pink),
-    0 0 40px var(--neon-pink);
-}
-
-.neon-cyan {
-  color: var(--neon-cyan);
-  text-shadow: 
-    0 0 5px var(--neon-cyan),
-    0 0 10px var(--neon-cyan),
-    0 0 20px var(--neon-cyan),
-    0 0 40px var(--neon-cyan);
-}
-
-.neon-purple {
-  color: var(--neon-purple);
-  text-shadow: 
-    0 0 5px var(--neon-purple),
-    0 0 10px var(--neon-purple),
-    0 0 20px var(--neon-purple);
-}
-
-/* Neon box glow */
-.neon-border-pink {
-  border-color: var(--neon-pink);
-  box-shadow: 
-    0 0 5px var(--neon-pink),
-    inset 0 0 5px rgba(255, 42, 109, 0.1);
-}
-
-.neon-border-cyan {
-  border-color: var(--neon-cyan);
-  box-shadow: 
-    0 0 5px var(--neon-cyan),
-    inset 0 0 5px rgba(5, 217, 232, 0.1);
-}
-
-/* Glitch effect */
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(2px, -2px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-.glitch:hover {
-  animation: glitch 0.3s ease infinite;
-}
-
-/* CRT flicker */
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.98; }
-}
-
-.crt-flicker {
-  animation: flicker 0.15s infinite;
-}
-
-/* Retro button */
-.btn-retro {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.65rem;
-  padding: 1rem 1.5rem;
-  background: transparent;
-  border: 2px solid var(--neon-cyan);
-  color: var(--neon-cyan);
+/* Vintage stamp effect */
+.stamp {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid var(--rust);
+  color: var(--rust);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  position: relative;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  letter-spacing: 0.1em;
+  transform: rotate(-2deg);
 }
 
-.btn-retro::before {
+.stamp-olive {
+  border-color: var(--olive);
+  color: var(--olive);
+}
+
+.stamp-mustard {
+  border-color: var(--mustard);
+  color: var(--mustard);
+}
+
+/* Vintage underline */
+.vintage-underline {
+  text-decoration: underline;
+  text-decoration-color: var(--mustard);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* Decorative border */
+.vintage-border {
+  border: 1px solid var(--card-border);
+  position: relative;
+}
+
+.vintage-border::before {
   content: '';
   position: absolute;
   top: 4px;
   left: 4px;
-  right: -4px;
-  bottom: -4px;
-  border: 2px solid var(--neon-pink);
-  z-index: -1;
-  transition: all 0.3s ease;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid var(--card-border);
+  pointer-events: none;
 }
 
-.btn-retro:hover {
-  background: var(--neon-cyan);
+/* Pull quote style */
+.pull-quote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  border-left: 3px solid var(--rust);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* Vintage button */
+.btn-vintage {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.875rem 2rem;
+  background: var(--foreground);
   color: var(--background);
-  box-shadow: 0 0 20px var(--neon-cyan);
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.btn-retro:hover::before {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.btn-vintage:hover {
+  background: var(--rust);
 }
 
-.btn-retro-pink {
-  border-color: var(--neon-pink);
-  color: var(--neon-pink);
+.btn-vintage-outline {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: var(--foreground);
+  border: 1.5px solid var(--foreground);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.btn-retro-pink::before {
-  border-color: var(--neon-cyan);
+.btn-vintage-outline:hover {
+  background: var(--foreground);
+  color: var(--background);
 }
 
-.btn-retro-pink:hover {
-  background: var(--neon-pink);
-  box-shadow: 0 0 20px var(--neon-pink);
-}
-
-/* Retro card */
-.retro-card {
+/* Vintage card */
+.vintage-card {
   background: var(--card);
   border: 1px solid var(--card-border);
-  position: relative;
   transition: all 0.3s ease;
 }
 
-.retro-card::before {
+.vintage-card:hover {
+  box-shadow: 8px 8px 0 var(--cream);
+  transform: translate(-2px, -2px);
+}
+
+/* Divider */
+.vintage-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--muted);
+}
+
+.vintage-divider::before,
+.vintage-divider::after {
   content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan), var(--neon-purple));
+  flex: 1;
+  height: 1px;
+  background: var(--card-border);
 }
 
-.retro-card:hover {
-  border-color: var(--neon-purple);
-  box-shadow: 
-    0 0 20px rgba(157, 78, 221, 0.3),
-    inset 0 0 20px rgba(157, 78, 221, 0.05);
+/* Number marker */
+.number-marker {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--rust);
+  line-height: 1;
 }
 
-/* Typing cursor */
-.typing-cursor::after {
-  content: '_';
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* Gradient text */
-.gradient-retro {
-  background: linear-gradient(135deg, var(--neon-pink), var(--neon-cyan));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Drop cap */
+.drop-cap::first-letter {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 4rem;
+  font-weight: 700;
+  float: left;
+  line-height: 0.8;
+  padding-right: 0.5rem;
+  color: var(--rust);
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: var(--cream);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--neon-purple);
+  background: var(--brown);
   border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--neon-pink);
+  background: var(--rust);
 }
 
 /* Selection */
 ::selection {
-  background: var(--neon-pink);
-  color: var(--background);
+  background: var(--mustard);
+  color: var(--foreground);
 }
 
 /* Focus */
 :focus-visible {
-  outline: 2px solid var(--neon-cyan);
+  outline: 2px solid var(--rust);
   outline-offset: 2px;
 }
 
@@ -300,23 +250,34 @@ body::after {
 .animation-delay-400 { animation-delay: 0.4s; }
 .animation-delay-500 { animation-delay: 0.5s; }
 
-/* Horizontal rule */
-.retro-hr {
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--neon-purple), transparent);
-  border: none;
+/* Ornament */
+.ornament {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--rust);
+  font-size: 1.25rem;
 }
 
-/* Star field background - optional decorative */
-.stars {
-  background-image: 
-    radial-gradient(2px 2px at 20px 30px, var(--neon-cyan), transparent),
-    radial-gradient(2px 2px at 40px 70px, var(--neon-pink), transparent),
-    radial-gradient(1px 1px at 90px 40px, var(--foreground), transparent),
-    radial-gradient(2px 2px at 160px 120px, var(--neon-cyan), transparent),
-    radial-gradient(1px 1px at 230px 80px, var(--neon-pink), transparent);
-  background-repeat: repeat;
-  background-size: 250px 150px;
+.ornament::before {
+  content: '✦';
+}
+
+.ornament::after {
+  content: '✦';
+}
+
+/* Tag */
+.vintage-tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.5rem;
+  background: var(--cream);
+  color: var(--brown);
+  border: 1px solid var(--card-border);
 }
 
 @layer utilities {

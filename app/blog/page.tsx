@@ -16,22 +16,22 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   {
-    title: 'WELCOME_TO_MY_BLOG',
-    excerpt: 'This is where I share my thoughts and experiences on various topics.',
+    title: 'Welcome to My Blog',
+    excerpt: 'This is where I share my thoughts, experiences, and insights on various topics that interest me.',
     date: '2024-01-15',
     slug: 'welcome-to-my-blog',
     readTime: '3 min',
   },
   {
-    title: 'GETTING_STARTED_WITH_NEXTJS',
-    excerpt: 'A guide to building modern web apps with Next.js and React.',
+    title: 'Getting Started with Next.js',
+    excerpt: 'A comprehensive guide to building modern web applications with Next.js and React.',
     date: '2024-01-10',
     slug: 'getting-started-with-nextjs',
     readTime: '8 min',
   },
   {
-    title: 'MODERN_WEB_DEVELOPMENT',
-    excerpt: 'Reflections on the current state of web dev and where it\'s heading.',
+    title: 'Thoughts on Modern Web Development',
+    excerpt: 'Reflections on the current state of web development and where it\'s heading.',
     date: '2024-01-05',
     slug: 'thoughts-on-modern-web-development',
     readTime: '5 min',
@@ -40,50 +40,47 @@ const blogPosts: BlogPost[] = [
 
 export default function Blog() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
+    <div className="max-w-3xl mx-auto px-6 py-12 md:py-20">
       <div className="opacity-0 animate-fade-in">
-        <p className="font-terminal text-xl text-neon-purple mb-4">
-          // BLOG.exe
-        </p>
-        <h1 className="font-pixel text-xl md:text-2xl mb-6">
-          <span className="neon-pink">THOUGHTS & IDEAS</span>
+        <span className="stamp mb-6">Journal</span>
+        <h1 className="font-display text-4xl md:text-5xl font-medium mt-6 mb-4">
+          Writing & Thoughts
         </h1>
-        <p className="font-terminal text-lg text-muted mb-4 max-w-2xl">
-          &gt; Random thoughts from my terminal_
+        <p className="text-lg text-muted mb-12">
+          Essays, ideas, and reflections on topics I find interesting.
         </p>
-        <hr className="retro-hr mb-12" />
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-1">
         {blogPosts.map((post, index) => (
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="block retro-card p-6 group opacity-0 animate-fade-in"
+            className="block vintage-card p-6 group opacity-0 animate-fade-in"
             style={{ animationDelay: `${(index + 1) * 100}ms` }}
           >
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-3">
-              <h2 className="font-pixel text-xs group-hover:neon-cyan transition-all">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-2">
+              <h2 className="font-display text-xl group-hover:text-rust transition-colors">
                 {post.title}
               </h2>
-              <div className="flex items-center gap-3 font-terminal text-sm text-muted">
-                <span>
+              <div className="flex items-center gap-3 font-mono text-xs text-muted shrink-0">
+                <time>
                   {new Date(post.date).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'short',
                     day: 'numeric',
                   })}
-                </span>
+                </time>
                 {post.readTime && (
                   <>
-                    <span className="text-neon-purple">|</span>
+                    <span>·</span>
                     <span>{post.readTime}</span>
                   </>
                 )}
               </div>
             </div>
-            <p className="font-terminal text-lg text-muted">
-              &gt; {post.excerpt}
+            <p className="text-muted text-sm leading-relaxed">
+              {post.excerpt}
             </p>
           </Link>
         ))}
@@ -91,8 +88,8 @@ export default function Blog() {
 
       {blogPosts.length === 0 && (
         <div className="text-center py-16">
-          <p className="font-terminal text-lg text-muted">
-            &gt; No posts yet. Check back soon_
+          <p className="text-muted italic">
+            No posts yet. Check back soon.
           </p>
         </div>
       )}

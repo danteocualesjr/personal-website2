@@ -13,88 +13,87 @@ interface Project {
   link?: string
   github?: string
   featured?: boolean
+  year: string
 }
 
 const projects: Project[] = [
   {
-    title: 'PROJECT_ONE',
-    description: 'A brief description of your first project. Explain what it does and what technologies you used.',
+    title: 'Project One',
+    description: 'A brief description of your first project. Explain what it does and what technologies you used to build it.',
     tags: ['React', 'TypeScript', 'Next.js'],
     link: '#',
     github: '#',
     featured: true,
+    year: '2024',
   },
   {
-    title: 'PROJECT_TWO',
-    description: 'A brief description of your second project. Highlight key features and your role.',
+    title: 'Project Two',
+    description: 'A brief description of your second project. Highlight key features and your role in the project.',
     tags: ['Python', 'Django', 'PostgreSQL'],
     link: '#',
     github: '#',
+    year: '2023',
   },
   {
-    title: 'PROJECT_THREE',
-    description: 'A brief description of your third project. Showcase the problem it solves.',
+    title: 'Project Three',
+    description: 'A brief description of your third project. Showcase the problem it solves and the impact.',
     tags: ['JavaScript', 'Node.js', 'MongoDB'],
     link: '#',
     github: '#',
+    year: '2023',
   },
 ]
 
 export default function Portfolio() {
   return (
-    <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+    <div className="max-w-4xl mx-auto px-6 py-12 md:py-20">
       <div className="opacity-0 animate-fade-in">
-        <p className="font-terminal text-xl text-neon-purple mb-4">
-          // PORTFOLIO.exe
-        </p>
-        <h1 className="font-pixel text-xl md:text-2xl mb-6">
-          <span className="neon-cyan">MY WORK</span>
+        <span className="stamp mb-6">Portfolio</span>
+        <h1 className="font-display text-4xl md:text-5xl font-medium mt-6 mb-4">
+          Selected Work
         </h1>
-        <p className="font-terminal text-lg text-muted mb-4 max-w-2xl">
-          &gt; Projects I've built and shipped_
+        <p className="text-lg text-muted mb-12 max-w-xl">
+          A collection of projects I've crafted. Each one represents a unique challenge and creative solution.
         </p>
-        <hr className="retro-hr mb-12" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="space-y-8">
         {projects.map((project, index) => (
-          <div
+          <article
             key={index}
-            className={`retro-card p-6 opacity-0 animate-fade-in ${
-              project.featured ? 'lg:col-span-2' : ''
+            className={`vintage-card p-8 opacity-0 animate-fade-in ${
+              project.featured ? 'border-l-4 border-l-rust' : ''
             }`}
             style={{ animationDelay: `${(index + 1) * 100}ms` }}
           >
-            {project.featured && (
-              <span className="inline-block font-pixel text-[10px] text-neon-yellow mb-3">
-                [FEATURED]
-              </span>
-            )}
-            <h2 className="font-pixel text-xs md:text-sm neon-pink mb-4">
-              {project.title}
-            </h2>
-            <p className="font-terminal text-lg text-muted mb-6 leading-relaxed">
-              &gt; {project.description}
+            <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+              <div>
+                {project.featured && (
+                  <span className="stamp mb-3">Featured</span>
+                )}
+                <h2 className="font-display text-2xl">{project.title}</h2>
+              </div>
+              <span className="font-mono text-sm text-muted">{project.year}</span>
+            </div>
+            <p className="text-muted mb-6 leading-relaxed">
+              {project.description}
             </p>
             <div className="flex flex-wrap gap-2 mb-6">
               {project.tags.map((tag, tagIndex) => (
-                <span
-                  key={tagIndex}
-                  className="px-3 py-1 font-terminal text-sm border border-card-border text-neon-purple"
-                >
+                <span key={tagIndex} className="vintage-tag">
                   {tag}
                 </span>
               ))}
             </div>
-            <div className="flex gap-6 font-terminal text-lg">
+            <div className="flex gap-6">
               {project.link && (
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neon-cyan hover:neon-cyan transition-all"
+                  className="font-mono text-xs uppercase tracking-widest text-rust hover:text-foreground transition-colors"
                 >
-                  [LIVE DEMO]
+                  View Project →
                 </a>
               )}
               {project.github && (
@@ -102,31 +101,34 @@ export default function Portfolio() {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neon-pink hover:neon-pink transition-all"
+                  className="font-mono text-xs uppercase tracking-widest text-olive hover:text-foreground transition-colors"
                 >
-                  [SOURCE]
+                  Source Code →
                 </a>
               )}
             </div>
-          </div>
+          </article>
         ))}
       </div>
 
       <div className="mt-16 text-center opacity-0 animate-fade-in animation-delay-500">
-        <p className="font-terminal text-lg text-muted mb-8">
-          &gt; Want to see more? Check out my GitHub_
+        <div className="vintage-divider mb-8">
+          <span className="font-mono text-xs uppercase tracking-widest">More</span>
+        </div>
+        <p className="text-muted mb-6">
+          Want to see more of my work or collaborate on a project?
         </p>
         <div className="flex gap-4 justify-center flex-wrap">
           <a
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-retro btn-retro-pink"
+            className="btn-vintage-outline"
           >
-            GITHUB
+            GitHub
           </a>
-          <Link href="/contact" className="btn-retro">
-            CONTACT
+          <Link href="/contact" className="btn-vintage">
+            Contact Me
           </Link>
         </div>
       </div>

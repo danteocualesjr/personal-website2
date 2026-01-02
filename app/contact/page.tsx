@@ -34,41 +34,38 @@ export default function Contact() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
+    <div className="max-w-3xl mx-auto px-6 py-12 md:py-20">
       <div className="opacity-0 animate-fade-in">
-        <p className="font-terminal text-xl text-neon-purple mb-4">
-          // CONTACT.exe
-        </p>
-        <h1 className="font-pixel text-xl md:text-2xl mb-6">
-          <span className="neon-pink">GET IN TOUCH</span>
+        <span className="stamp mb-6">Contact</span>
+        <h1 className="font-display text-4xl md:text-5xl font-medium mt-6 mb-4">
+          Get in Touch
         </h1>
-        <p className="font-terminal text-lg text-muted mb-4 max-w-2xl">
-          &gt; Ready to connect? Send me a message_
+        <p className="text-lg text-muted mb-12">
+          Have a question or want to collaborate? I'd love to hear from you.
         </p>
-        <hr className="retro-hr mb-12" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
         <div className="lg:col-span-2 opacity-0 animate-fade-in animation-delay-100">
-          <h2 className="font-terminal text-lg text-neon-cyan mb-6">[INFO]</h2>
+          <h2 className="font-mono text-xs uppercase tracking-widest text-muted mb-6">Contact Info</h2>
           <div className="space-y-6">
             <div>
-              <p className="font-terminal text-sm text-muted mb-1">EMAIL:</p>
+              <p className="font-mono text-xs text-muted mb-1 uppercase tracking-wider">Email</p>
               <a
                 href="mailto:your.email@example.com"
-                className="font-terminal text-lg text-foreground hover:text-neon-cyan transition-colors"
+                className="hover:text-rust transition-colors vintage-underline"
               >
                 your.email@example.com
               </a>
             </div>
             <div>
-              <p className="font-terminal text-sm text-muted mb-3">SOCIALS:</p>
-              <div className="flex gap-3">
+              <p className="font-mono text-xs text-muted mb-3 uppercase tracking-wider">Social</p>
+              <div className="flex gap-4">
                 <a
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 border border-card-border flex items-center justify-center text-muted hover:text-neon-cyan hover:border-neon-cyan hover:neon-border-cyan transition-all"
+                  className="w-10 h-10 border border-card-border flex items-center justify-center text-muted hover:text-rust hover:border-rust transition-all"
                   aria-label="GitHub"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -79,7 +76,7 @@ export default function Contact() {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 border border-card-border flex items-center justify-center text-muted hover:text-neon-pink hover:border-neon-pink hover:neon-border-pink transition-all"
+                  className="w-10 h-10 border border-card-border flex items-center justify-center text-muted hover:text-olive hover:border-olive transition-all"
                   aria-label="LinkedIn"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -90,7 +87,7 @@ export default function Contact() {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 border border-card-border flex items-center justify-center text-muted hover:text-neon-purple hover:border-neon-purple transition-all"
+                  className="w-10 h-10 border border-card-border flex items-center justify-center text-muted hover:text-mustard hover:border-mustard transition-all"
                   aria-label="Twitter"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -107,9 +104,9 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="name"
-                className="block font-terminal text-sm text-muted mb-2"
+                className="block font-mono text-xs text-muted mb-2 uppercase tracking-wider"
               >
-                NAME:
+                Name
               </label>
               <input
                 type="text"
@@ -118,17 +115,17 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-card border border-card-border font-terminal text-foreground focus:outline-none focus:border-neon-cyan focus:neon-border-cyan transition-all"
-                placeholder="Enter your name..."
+                className="w-full px-4 py-3 bg-card border border-card-border focus:outline-none focus:border-rust transition-colors"
+                placeholder="Your name"
               />
             </div>
 
             <div>
               <label
                 htmlFor="email"
-                className="block font-terminal text-sm text-muted mb-2"
+                className="block font-mono text-xs text-muted mb-2 uppercase tracking-wider"
               >
-                EMAIL:
+                Email
               </label>
               <input
                 type="email"
@@ -137,7 +134,7 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-card border border-card-border font-terminal text-foreground focus:outline-none focus:border-neon-cyan focus:neon-border-cyan transition-all"
+                className="w-full px-4 py-3 bg-card border border-card-border focus:outline-none focus:border-rust transition-colors"
                 placeholder="your@email.com"
               />
             </div>
@@ -145,9 +142,9 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="message"
-                className="block font-terminal text-sm text-muted mb-2"
+                className="block font-mono text-xs text-muted mb-2 uppercase tracking-wider"
               >
-                MESSAGE:
+                Message
               </label>
               <textarea
                 id="message"
@@ -156,23 +153,23 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full px-4 py-3 bg-card border border-card-border font-terminal text-foreground focus:outline-none focus:border-neon-cyan focus:neon-border-cyan transition-all resize-none"
+                className="w-full px-4 py-3 bg-card border border-card-border focus:outline-none focus:border-rust transition-colors resize-none"
                 placeholder="What would you like to discuss?"
               />
             </div>
 
             {submitStatus === 'success' && (
-              <div className="p-4 border border-neon-cyan neon-border-cyan">
-                <p className="font-terminal text-neon-cyan">
-                  &gt; MESSAGE SENT SUCCESSFULLY_
+              <div className="p-4 border border-olive bg-olive/5">
+                <p className="text-olive text-sm">
+                  Thank you for your message! I'll get back to you soon.
                 </p>
               </div>
             )}
 
             {submitStatus === 'error' && (
-              <div className="p-4 border border-neon-pink neon-border-pink">
-                <p className="font-terminal text-neon-pink">
-                  &gt; ERROR: Please try again_
+              <div className="p-4 border border-rust bg-rust/5">
+                <p className="text-rust text-sm">
+                  Something went wrong. Please try again later.
                 </p>
               </div>
             )}
@@ -180,9 +177,9 @@ export default function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn-retro w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn-vintage w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'SENDING...' : 'TRANSMIT'}
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>
