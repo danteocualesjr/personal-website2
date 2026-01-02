@@ -9,7 +9,7 @@ export default function Home() {
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
             Hello, I'm{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Your Name
+              Dante O. Cuales, Jr.
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">

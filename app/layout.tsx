@@ -4,7 +4,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Your Name - Personal Website',
+  title: 'Dante O. Cuales, Jr. - Personal Website',
   description: 'Personal website showcasing my work, thoughts, and interests',
 }
 
