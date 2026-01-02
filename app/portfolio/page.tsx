@@ -12,6 +12,7 @@ interface Project {
   tags: string[]
   link?: string
   github?: string
+  featured?: boolean
 }
 
 const projects: Project[] = [
@@ -21,6 +22,7 @@ const projects: Project[] = [
     tags: ['React', 'TypeScript', 'Next.js'],
     link: '#',
     github: '#',
+    featured: true,
   },
   {
     title: 'Project Two',
@@ -40,45 +42,62 @@ const projects: Project[] = [
 
 export default function Portfolio() {
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-      <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-        Portfolio
-      </h1>
-      <p className="text-lg text-gray-600 dark:text-gray-400 mb-12">
-        A collection of projects I've worked on. Each project represents a learning journey and a creative solution.
-      </p>
+    <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
+      <div className="opacity-0 animate-fade-in-up">
+        <p className="text-sm uppercase tracking-widest text-muted mb-4">
+          Portfolio
+        </p>
+        <h1 className="font-serif text-4xl md:text-6xl font-medium mb-6">
+          Selected Work
+        </h1>
+        <p className="text-xl text-muted mb-4 max-w-2xl">
+          A collection of projects I've worked on. Each represents a unique challenge and creative solution.
+        </p>
+        <div className="decorative-line mb-16"></div>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="border border-gray-200 dark:border-gray-800 rounded-lg p-6 hover:border-gray-300 dark:hover:border-gray-700 transition-colors flex flex-col"
+            className={`group p-8 bg-card border border-card-border rounded-xl hover-lift opacity-0 animate-fade-in-up ${
+              project.featured ? 'lg:col-span-2' : ''
+            }`}
+            style={{ animationDelay: `${(index + 1) * 100}ms` }}
           >
-            <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+            {project.featured && (
+              <span className="inline-block px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full mb-4">
+                Featured
+              </span>
+            )}
+            <h2 className="text-2xl font-medium mb-3 group-hover:text-accent transition-colors">
               {project.title}
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
+            <p className="text-muted mb-6 leading-relaxed">
               {project.description}
             </p>
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-2 mb-6">
               {project.tags.map((tag, tagIndex) => (
                 <span
                   key={tagIndex}
-                  className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded"
+                  className="px-3 py-1 text-xs font-medium bg-background border border-card-border rounded-full text-muted"
                 >
                   {tag}
                 </span>
               ))}
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-6">
               {project.link && (
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1"
                 >
-                  Live Demo →
+                  Live Demo
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
                 </a>
               )}
               {project.github && (
@@ -86,9 +105,12 @@ export default function Portfolio() {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1"
                 >
-                  GitHub →
+                  View Code
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  </svg>
                 </a>
               )}
             </div>
@@ -96,23 +118,20 @@ export default function Portfolio() {
         ))}
       </div>
 
-      <div className="mt-12 text-center">
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
+      <div className="mt-20 text-center opacity-0 animate-fade-in-up animation-delay-500">
+        <p className="text-muted mb-6">
           Want to see more? Check out my GitHub or get in touch!
         </p>
-        <div className="flex gap-4 justify-center">
+        <div className="flex gap-4 justify-center flex-wrap">
           <a
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white rounded-lg font-medium hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-gray-900 transition-colors"
+            className="btn-secondary"
           >
-            View on GitHub
+            View GitHub
           </a>
-          <Link
-            href="/contact"
-            className="px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
-          >
+          <Link href="/contact" className="btn-primary">
             Get in Touch
           </Link>
         </div>
@@ -120,4 +139,3 @@ export default function Portfolio() {
     </div>
   )
 }
-

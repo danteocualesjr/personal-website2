@@ -44,50 +44,56 @@ const books: Book[] = [
 
 export default function Books() {
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-      <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-        Books
-      </h1>
-      <p className="text-lg text-gray-600 dark:text-gray-400 mb-12">
-        A curated list of books I've read and recommend. Reading is one of my favorite ways to learn and grow.
-      </p>
+    <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
+      <div className="opacity-0 animate-fade-in-up">
+        <p className="text-sm uppercase tracking-widest text-muted mb-4">
+          Library
+        </p>
+        <h1 className="font-serif text-4xl md:text-6xl font-medium mb-6">
+          Books I Recommend
+        </h1>
+        <p className="text-xl text-muted mb-4 max-w-2xl">
+          Reading shapes how I think. Here are some books that have influenced me.
+        </p>
+        <div className="decorative-line mb-16"></div>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {books.map((book, index) => (
           <div
             key={index}
-            className="border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden hover:border-gray-300 dark:hover:border-gray-700 transition-colors bg-white dark:bg-gray-900"
+            className="group bg-card border border-card-border rounded-xl overflow-hidden hover-lift opacity-0 animate-fade-in-up"
+            style={{ animationDelay: `${(index + 1) * 100}ms` }}
           >
-            <div className="relative w-full h-64 bg-gray-100 dark:bg-gray-800">
+            <div className="relative w-full aspect-[2/3] bg-background overflow-hidden">
               <Image
                 src={book.cover}
                 alt={`${book.title} cover`}
                 fill
-                className="object-cover"
+                className="object-contain p-6 transition-transform duration-300 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={index < 3}
               />
             </div>
             <div className="p-6">
-              <div className="mb-3">
-                <span className="text-xs font-medium text-gray-500 dark:text-gray-500 uppercase">
-                  {book.category}
-                </span>
-              </div>
-              <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+              <span className="inline-block px-2 py-1 text-xs font-medium bg-accent/10 text-accent rounded mb-3">
+                {book.category}
+              </span>
+              <h2 className="text-lg font-medium mb-1 group-hover:text-accent transition-colors">
                 {book.title}
               </h2>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+              <p className="text-sm text-muted mb-3">
                 by {book.author}
               </p>
               {book.rating && (
-                <div className="flex items-center mb-3">
+                <div className="flex items-center gap-1 mb-3">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
                       className={`w-4 h-4 ${
                         i < book.rating!
-                          ? 'text-yellow-400 fill-current'
-                          : 'text-gray-300 dark:text-gray-700'
+                          ? 'text-accent'
+                          : 'text-card-border'
                       }`}
                       fill="currentColor"
                       viewBox="0 0 20 20"
@@ -97,7 +103,7 @@ export default function Books() {
                   ))}
                 </div>
               )}
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
+              <p className="text-sm text-muted leading-relaxed">
                 {book.description}
               </p>
             </div>
@@ -106,8 +112,8 @@ export default function Books() {
       </div>
 
       {books.length === 0 && (
-        <div className="text-center py-12">
-          <p className="text-gray-600 dark:text-gray-400">
+        <div className="text-center py-16">
+          <p className="text-muted">
             Book recommendations coming soon!
           </p>
         </div>
@@ -115,4 +121,3 @@ export default function Books() {
     </div>
   )
 }
-

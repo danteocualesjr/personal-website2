@@ -1,24 +1,23 @@
-import { notFound } from 'next/navigation'
 import Link from 'next/link'
 
-// This is a placeholder for future blog post pages
-// In a real application, you would fetch the post content based on the slug
-
 export default function BlogPost({ params }: { params: { slug: string } }) {
-  // For now, just show a placeholder
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+    <div className="max-w-3xl mx-auto px-6 lg:px-8 py-16 md:py-24">
       <Link
         href="/blog"
-        className="text-blue-600 dark:text-blue-400 hover:underline mb-8 inline-block"
+        className="inline-flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors mb-8"
       >
-        ← Back to Blog
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Blog
       </Link>
-      <article>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-          Blog Post: {params.slug}
+      <article className="opacity-0 animate-fade-in-up">
+        <h1 className="font-serif text-3xl md:text-5xl font-medium mb-4">
+          Blog Post: {params.slug.replace(/-/g, ' ')}
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-8">
+        <div className="decorative-line mb-8"></div>
+        <p className="text-muted leading-relaxed">
           This is a placeholder for the blog post content. In a real application,
           you would fetch and display the actual post content here.
         </p>
@@ -26,4 +25,3 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
     </div>
   )
 }
-
