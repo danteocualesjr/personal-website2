@@ -6,7 +6,7 @@ export default function Home() {
       <main className="max-w-xl mx-auto px-6 py-16 md:py-24">
         {/* Introduction */}
         <section className="mb-12">
-          <div className="inline-block px-3 py-1 bg-green-300 border-2 border-black text-sm font-bold mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <div className="inline-block px-3 py-1 bg-lime-400 border-2 border-black text-sm font-bold mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             Available for work
           </div>
           <h1 className="text-3xl font-bold text-black mb-4">
@@ -30,28 +30,28 @@ export default function Home() {
           <div className="space-y-3">
             <Link 
               href="/about" 
-              className="block p-4 bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+              className="block p-4 bg-cyan-300 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
             >
               <span className="font-bold">About Me</span>
               <span className="text-gray-500 ml-2">→</span>
             </Link>
             <Link 
               href="/portfolio" 
-              className="block p-4 bg-blue-200 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+              className="block p-4 bg-violet-400 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
             >
               <span className="font-bold">Portfolio</span>
               <span className="text-gray-500 ml-2">→</span>
             </Link>
             <Link 
               href="/blog" 
-              className="block p-4 bg-green-200 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+              className="block p-4 bg-yellow-300 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
             >
               <span className="font-bold">Blog</span>
               <span className="text-gray-500 ml-2">→</span>
             </Link>
             <Link 
               href="/books" 
-              className="block p-4 bg-orange-200 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+              className="block p-4 bg-orange-400 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
             >
               <span className="font-bold">Books I Recommend</span>
               <span className="text-gray-500 ml-2">→</span>
@@ -65,22 +65,22 @@ export default function Home() {
         <section>
           <p className="text-gray-700 leading-relaxed mb-6">
             You can find me on{' '}
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-2 hover:bg-yellow-300">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-2 hover:bg-lime-400">
               GitHub
             </a>
             ,{' '}
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-2 hover:bg-yellow-300">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-2 hover:bg-cyan-300">
               LinkedIn
             </a>
             , or{' '}
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-2 hover:bg-yellow-300">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-2 hover:bg-violet-400">
               Twitter
             </a>
             .
           </p>
           <Link 
             href="/contact" 
-            className="inline-block px-6 py-3 bg-black text-white font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(251,191,36,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+            className="inline-block px-6 py-3 bg-red-500 text-white font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
           >
             Get in touch →
           </Link>
