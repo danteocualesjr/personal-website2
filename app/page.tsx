@@ -2,90 +2,113 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#fffef9]">
-      <main className="max-w-xl mx-auto px-6 py-16 md:py-24">
-        {/* Introduction */}
-        <section className="mb-12">
-          <div className="inline-block px-3 py-1 bg-lime-400 border-2 border-black text-sm font-bold mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            Available for work
-          </div>
-          <h1 className="text-3xl font-bold text-black mb-4">
-            Hi, I'm Dante.
-          </h1>
-          <p className="text-gray-700 leading-relaxed mb-4">
+    <div className="max-w-3xl mx-auto px-6 py-12 md:py-20">
+      <div className="opacity-0 animate-fade-in">
+        <span className="stamp mb-6">Available for work</span>
+        <h1 className="font-display text-4xl md:text-5xl font-medium mt-6 mb-8">
+          Hi, I'm Dante.
+        </h1>
+      </div>
+
+      <div className="space-y-12">
+        <section className="opacity-0 animate-fade-in animation-delay-100">
+          <p className="text-lg leading-relaxed text-muted drop-cap">
             I'm a developer and creator. I build digital products and write about technology. I've been coding for several years and love turning ideas into reality.
           </p>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-lg leading-relaxed text-muted mt-6">
             My goal is to create things that are useful, beautiful, and easy to use. Based in the Philippines, working globally.
           </p>
         </section>
 
-        <hr className="border-2 border-black mb-12" />
+        <div className="vintage-divider opacity-0 animate-fade-in animation-delay-200">
+          <span className="font-mono text-xs uppercase tracking-widest">Explore</span>
+        </div>
 
-        {/* Featured Links */}
-        <section className="mb-12">
-          <p className="text-gray-700 leading-relaxed mb-6">
+        <section className="opacity-0 animate-fade-in animation-delay-200">
+          <p className="text-muted leading-relaxed mb-6">
             Some pages you might find interesting:
           </p>
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Link 
               href="/about" 
-              className="block p-4 bg-cyan-300 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+              className="vintage-card p-6 group"
             >
-              <span className="font-bold">About Me</span>
-              <span className="text-gray-500 ml-2">→</span>
+              <h2 className="font-display text-lg mb-2 group-hover:text-rust transition-colors">
+                About Me
+              </h2>
+              <p className="text-sm text-muted">
+                Learn more about my background and interests
+              </p>
             </Link>
             <Link 
               href="/portfolio" 
-              className="block p-4 bg-violet-400 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+              className="vintage-card p-6 group"
             >
-              <span className="font-bold">Portfolio</span>
-              <span className="text-gray-500 ml-2">→</span>
+              <h2 className="font-display text-lg mb-2 group-hover:text-rust transition-colors">
+                Portfolio
+              </h2>
+              <p className="text-sm text-muted">
+                View my projects and work
+              </p>
             </Link>
             <Link 
               href="/blog" 
-              className="block p-4 bg-yellow-300 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+              className="vintage-card p-6 group"
             >
-              <span className="font-bold">Blog</span>
-              <span className="text-gray-500 ml-2">→</span>
+              <h2 className="font-display text-lg mb-2 group-hover:text-rust transition-colors">
+                Blog
+              </h2>
+              <p className="text-sm text-muted">
+                Read my thoughts and articles
+              </p>
             </Link>
             <Link 
               href="/books" 
-              className="block p-4 bg-orange-400 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
+              className="vintage-card p-6 group"
             >
-              <span className="font-bold">Books I Recommend</span>
-              <span className="text-gray-500 ml-2">→</span>
+              <h2 className="font-display text-lg mb-2 group-hover:text-rust transition-colors">
+                Books I Recommend
+              </h2>
+              <p className="text-sm text-muted">
+                Discover books that have influenced me
+              </p>
             </Link>
           </div>
         </section>
 
-        <hr className="border-2 border-black mb-12" />
+        <div className="vintage-divider opacity-0 animate-fade-in animation-delay-300">
+          <span className="font-mono text-xs uppercase tracking-widest">Connect</span>
+        </div>
 
-        {/* Connect */}
-        <section>
-          <p className="text-gray-700 leading-relaxed mb-6">
+        <section className="opacity-0 animate-fade-in animation-delay-300">
+          <p className="text-muted leading-relaxed mb-6">
             You can find me on{' '}
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-2 hover:bg-lime-400">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="vintage-underline hover:text-rust transition-colors">
               GitHub
             </a>
             ,{' '}
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-2 hover:bg-cyan-300">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="vintage-underline hover:text-rust transition-colors">
               LinkedIn
             </a>
             , or{' '}
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-2 hover:bg-violet-400">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="vintage-underline hover:text-rust transition-colors">
               Twitter
             </a>
             .
           </p>
-          <Link 
-            href="/contact" 
-            className="inline-block px-6 py-3 bg-red-500 text-white font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all"
-          >
-            Get in touch →
-          </Link>
         </section>
-      </main>
+
+        <section className="opacity-0 animate-fade-in animation-delay-400">
+          <div className="vintage-border p-8 text-center">
+            <p className="font-display text-xl mb-6">
+              Interested in working together?
+            </p>
+            <Link href="/contact" className="btn-vintage inline-block">
+              Get in touch
+            </Link>
+          </div>
+        </section>
+      </div>
     </div>
   )
 }
